@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark"> -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Lumia Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="css/style.css" rel="stylesheet">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+
+            <div class="logo me-auto">
+                <h1><a href="index.html">Sendert</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto" href="#contact">Envio</a></li>
+                    <li><a class="nav-link scrollto active" href="mapa.html">Ver en mapa</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+            <div class="header-social-links d-flex align-items-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            </div>
+
+        </div>
+    </header>
+    <main id="main">
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact section-bg">
+            <div class="container">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-lg-10">
+                        <form >
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <select  id="user" class="form-select" aria-label="Default select example">
+                                        <option value="1">Usuario1</option>
+                                        <option value="2">Usuario2</option>
+                                        <option value="3">Usuario3</option>
+                                        <option value="4">Usuario4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="my-3">
+                                <!-- <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div> -->
+                            </div>
+                            <input type="hidden" name="option" id="option" class="hidden" value="detener">
+                            <div class="text-center">
+                                <button class="st" prop="iniciar" type="button">Iniciar</button>
+                                <button class="st" prop="detener" type="button">Detener</button>
+                                <hr>
+                                <smal id="clicked"></smal>:<smal id="latlon"></smal>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main>
+    <!-- End #main -->
+
+    <!-- <div class="form-container">
+            <h1>Formulario Responsivo</h1>
+            <form>
+                <select id="user">
+                    <option value="1">Usuario1</option>
+                    <option value="2">Usuario2</option>
+                    <option value="3">Usuario3</option>
+                    <option value="4">Usuario4</option>
+                </select>
+                <input type="hidden" name="option" id="option" class="hidden" value="detener">
+                <button class="st" prop="iniciar" type="button"><img class="icon" src="icon.svg" alt="Iniciar">Iniciar</button>
+                <button class="st" prop="detener" type="button"><img class="icon" src="icon.svg" alt="Iniciar">Detener</button>
+                <hr>
+                <smal id="clicked"></smal>:<smal id="latlon"></smal>
+            </form>
+        </div> -->
+
+
+
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="vendor/php-email-form/validate.js"></script>
+    <script src="js/main2.js"></script>
+    <script src="js/main4.js"></script>
+    <script>
+        var obj = new Sender(".st");
+        obj.setFunction();
+        
+    </script>
+
+</body>
+
+</html>

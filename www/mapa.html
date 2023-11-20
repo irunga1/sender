@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Google Maps Multiple Markers</title>
+    <!-- <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+          key: "AIzaSyDzBdWSIsJw6KGmpGTbGLtJru6GrHwf1b4",
+          // Add other bootstrap parameters as needed, using camel case.
+          // Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+        });
+      </script> -->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyDzBdWSIsJw6KGmpGTbGLtJru6GrHwf1b4" type="text/javascript">
+
+
+    
+    </script>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+      ></script>
+</head>
+
+<body>
+    <button id="refresh">Refrescar</button>
+    <a href="index.html">regresar</a>
+    <hr>
+    <div id="map" style="width: 600px; height: 600px;"></div>
+ 
+
+    <script type="text/javascript">
+        //https://precious-subdued-hen.glitch.me
+        //https://precious-subdued-hen.glitch.me/entrega/
+        //var url = "https://personapi-e7s3.onrender.com/entrega/getall";
+        var url = "https://personapi-yrti.onrender.com/entrega/getall";
+        async function getInfo() {
+            var coord = await $.ajax({
+                url: url,
+                type: 'GET'
+            });
+            
+            a =  coord.info;
+            
+            var tempo = [];
+            for(i = 0;i<a.length;i++){
+                var lat = parseFloat(a[i].lat);
+                var lng = parseFloat(a[i].lon);
+                let obj = {"lat":lat,"lng":lng};
+                tempo[i] = obj;
+            }
+            var tempo2 =[];
+            for(i = 0;i<tempo.length;i++){
+                let tmp = ["recorrido",tempo[i].lat,tempo[i].lng,i];
+                tempo2[i]= tmp;
+            }
+            let gip = new GeoIp();
+            let loc = await gip.getData();
+            var coord1 = tempo[0];
+            var coord2 = tempo;
+            var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            // center: new google.maps.LatLng(14.6581379, -90.4946733),
+            center: new google.maps.LatLng(loc[1], loc[0]),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < tempo2.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(tempo2[i][1], tempo2[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(tempo2[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+            
+        }
+
+        getInfo();
+        
+        class GeoIp {
+            constructor(firstProp = null) {
+                this.firstProp = firstProp
+            }
+            getData = async()=>{
+                const url = "https://api.ipgeolocation.io/ipgeo?apiKey=49de5d8c5c114887bf9a32e6146f12bc";
+                let api = await fetch(url);
+                let data = await api.json();
+                let geoLoc = await [data.longitude,data.latitude];
+                console.log(data);
+                console.log(geoLoc);
+                return await geoLoc;
+                
+                // BK22WIFICM
+            }
+        }
+        const  refresh  = document.getElementById("refresh");
+        refresh.addEventListener("click",()=>{
+            getInfo();
+        })
+    </script>
+</body>
+
+</html>

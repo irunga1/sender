@@ -1,0 +1,48 @@
+{
+  "name": "io.cordova.hellocordova",
+  "displayName": "Sendigng",
+  "version": "1.0.0",
+  "description": "Geolocation ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "com.applurk.cordova-screen-locker": "github:kitolog/cordova-plugin-screen-locker",
+    "cordova-android": "^12.0.1",
+    "cordova-background-geolocation-plugin": "^2.0.9",
+    "cordova-browser": "^7.0.0",
+    "cordova-plugin-background-mode": "^0.7.3",
+    "cordova-plugin-device": "^2.1.0",
+    "cordova-plugin-geolocation": "^5.0.0",
+    "cordova-plugin-x-toast": "^2.7.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-x-toast": {},
+      "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "true"
+      },
+      "cordova-background-geolocation-plugin": {
+        "GOOGLE_PLAY_SERVICES_VERSION": "11+",
+        "ICON": "@mipmap/ic_launcher",
+        "SMALL_ICON": "@mipmap/ic_launcher",
+        "ACCOUNT_NAME": "@string/app_name",
+        "ACCOUNT_LABEL": "@string/app_name",
+        "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+        "CONTENT_AUTHORITY": "$PACKAGE_NAME"
+      },
+      "com.applurk.cordova-screen-locker": {}
+    },
+    "platforms": [
+      "browser",
+      "android"
+    ]
+  }
+}

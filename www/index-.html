@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark"> -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: silver;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-container select,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: silver;
+            color: black;
+            cursor: pointer;
+        }
+
+        .form-container button {
+            background-color: black;
+            color: silver;
+        }
+
+
+        /* add */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .st {
+            background-color: rgb(77, 75, 75)!important;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .st {
+            width: 45% !important;
+            display: inline-block;
+        }
+
+        .st:hover {
+            background-color: darkred!important;
+            color: white;
+        }
+
+        .st.checked {
+            background-color: darkred;
+            color: white;
+        }
+
+        .icon {
+            width: 25px;
+            height: 25px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        #latlon{
+            color:red;
+            font-weight: 700;
+        }
+        #clicked{
+            color: greenyellow;
+        }
+        /* add */
+    </style>
+    <body>
+        <div class="form-container">
+            <h1>Formulario Responsivo</h1>
+            <form>
+                <select id="user">
+                    <option value="1">Usuario1</option>
+                    <option value="2">Usuario2</option>
+                    <option value="3">Usuario3</option>
+                    <option value="4">Usuario4</option>
+                </select>
+                <input type="hidden" name="option" id="option" class="hidden" value="detener">
+                <button class="st" prop="iniciar" type="button"><img class="icon" src="icon.svg" alt="Iniciar">Iniciar</button>
+                <button class="st" prop="detener" type="button"><img class="icon" src="icon.svg" alt="Iniciar">Detener</button>
+                <hr>
+                <smal id="clicked"></smal>:<smal id="latlon"></smal>
+            </form>
+        </div>
+        
+
+
+        <script src="cordova.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/main2.js"></script> 
+        <script>
+            var obj = new Sender(".st");
+            obj.setFunction();
+        </script>
+                
+    </body>
+</html>
